@@ -1,0 +1,39 @@
+import java.util.Random;
+public class RSA {
+    public class Prime_Number_Generator {
+        public static void main(String[] args) {
+            int num = 0;
+            Random rand = new Random(); // generate a random number
+            num = rand.nextInt(2050) + 1;
+    
+            while (!isPrime(num)) {          
+                num = rand.nextInt(2050) + 1;
+            }
+            //System.out.println(num);// print the number
+            return num;
+        }
+    
+        /**
+         * Checks to see if the requested value is prime.
+         */
+        private static boolean isPrime(int inputNum){
+            if (inputNum % 2 == 0 || inputNum <= 1024) 
+                return false; //this returns false if number is <=1 & true if number = 2 or 3
+            int divisor = 3;
+            while ((divisor <= Math.sqrt(inputNum)) && (inputNum % divisor != 0)) 
+                divisor += 2; //iterates through all possible divisors
+            return inputNum % divisor != 0; //returns true/false
+        }
+    }
+
+
+
+      //UserInput input = new UserInput();
+    
+      public RSA() {
+          int p,q;
+          p = Prime_Number_Generator;
+          q = Prime_Number_Generator;
+          System.out.println(p * q);
+  }
+}
